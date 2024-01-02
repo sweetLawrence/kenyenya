@@ -122,7 +122,7 @@ const DocumentUpload = ({ label, setFormData }) => {
         <div className="document-upload-container">
             <label>{label}</label>
             <div className="doc-input">
-                <input type="file" accept="image/*,.pdf" className="file-input" onChange={handleDocumentChange} name={label.toLowerCase().replace(/\s+/g, '')} />
+                <input type="file" accept="application/pdf" className="file-input" onChange={handleDocumentChange} name={label.toLowerCase().replace(/\s+/g, '')} />
                 <button className="doc-upload-button" onClick={handleDocumentUpload} disabled={loading}>
                     {loading ? 'Uploading...' : 'Upload Document'}
                 </button>
