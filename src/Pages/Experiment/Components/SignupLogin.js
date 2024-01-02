@@ -73,7 +73,7 @@ function SignupLogin() {
             } else if (!signup.kcseIndex) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
-                const response = await axios.post('https://b3d0-154-159-237-69.ngrok-free.app//api/signup', signup);
+                const response = await axios.post('https://b3d0-154-159-237-69.ngrok-free.app/api/signup', signup);
                 const accessToken = response.data;
                 localStorage.setItem('accessToken', accessToken);
 
