@@ -217,7 +217,7 @@ function Application2() {
     const accessToken = localStorage.getItem("accessToken");
     try {
       if (accessToken) {
-        const response = await axios.patch('https://d8dc-154-159-237-69.ngrok-free.app/api/update-applicant', formData, {
+        const response = await axios.patch('https://b3d0-154-159-237-69.ngrok-free.app/api/update-applicant', formData, {
           headers: {
             accessToken: accessToken,
           },
@@ -236,7 +236,7 @@ function Application2() {
       const ngrokSkipBrowserWarningValue = 'anyValue';
       if (accessToken) {
         try {
-          const response = await axios.get('https://d8dc-154-159-237-69.ngrok-free.app/api/applicant', {
+          const response = await axios.get('https://b3d0-154-159-237-69.ngrok-free.app/api/applicant', {
             headers: {
               accessToken: accessToken,
               'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
