@@ -233,11 +233,13 @@ function Application2() {
   useEffect(() => {
     const fetchData = async () => {
       const accessToken = localStorage.getItem('accessToken');
+      const ngrokSkipBrowserWarningValue = 'anyValue';
       if (accessToken) {
         try {
           const response = await axios.get('https://d8dc-154-159-237-69.ngrok-free.app/api/applicant', {
             headers: {
               accessToken: accessToken,
+              'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
             },
           });
           console.log("responseData", response.data)
