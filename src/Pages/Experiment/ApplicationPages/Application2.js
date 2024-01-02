@@ -242,7 +242,7 @@ function Application2() {
               'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
             },
           });
-          console.log("responseData", response.data)
+          console.log("responseData", response.data[0])
           // setFormData(response.data[0]);
         } catch (error) {
           console.error('Error fetching user data:', error);
