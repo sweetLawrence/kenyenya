@@ -1,0 +1,32 @@
+/* DateField.css */
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .date-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+    font-weight: 600;
+    color: #007bff;
+    margin-left: .6em;
+  }
+  
+  .date-field {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .date-field:focus {
+    border-color: #007bff; /* Change the border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  

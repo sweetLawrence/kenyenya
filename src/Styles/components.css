@@ -1,0 +1,187 @@
+
+.page {
+    width: 100%;
+    min-height: calc(100vh - 3em);
+    padding-bottom: 2rem;
+}
+
+.mobile-drop-down {
+    padding-left: 0.3rem;
+    width: max-content;
+}
+
+.drop-down-tray {
+    width: 70vw !important;
+    display: grid;
+    height: 50vh !important;
+    display: -ms-grid;
+    grid-auto-flow: row !important;
+    position: absolute;
+    top: calc(50% + 2em);
+    left: 0 !important;
+    background-color: #ffffff;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.221);
+    /* backdrop-filter: blur(5px); */
+    align-content: first baseline !important;
+    gap: 0.5rem;
+}
+
+.drop-down-tray #drop-downs {
+    width: 65vw !important;
+    height: 3rem;
+    color: white;
+    /* background-color: #FF4870; */
+    background-color: #4E8198;
+}
+
+.bar-btn {
+    width: 45px;
+    height: 2em;
+    display: grid;
+    margin: auto;
+    align-self: self-start;
+    grid-auto-flow: row;
+    background-color: transparent;
+}
+
+.bar-btn div {
+    transition: all 0.3s ease-in-out;
+    height: 4px !important;
+    background-color: white;
+}
+
+
+.about-segment {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-direction: row;
+    min-height: 50vh;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.039);
+}
+
+/* special styling for chairman image in about-segment */
+#chairman img {
+    width: 300px;
+}
+
+/* special styling ends here */
+.about-segment h1 {
+    font-size: 1.2rem;
+    color: #4E8198;
+}
+
+.about-segment .caption-img {
+    min-width: 300px;
+    /* height: inherit; */
+    max-height: 60vh;
+    margin: auto;
+    flex: 1 0 40%;
+    overflow: hidden;
+}
+
+.about-segment .details {
+    flex: 1 0 55%;
+    text-align: left;
+    padding: 0.5rem;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.5rem;
+    grid-template-rows: max-content;
+}
+
+.table-2 .ol {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.table-2 h2 {
+    font-size: 1.2rem;
+}
+
+.table-2 .ol .li {
+    width: 100%;
+    display: grid;
+    justify-content: left;
+    grid-auto-flow: column;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+
+.table {
+    width: 96%;
+    height: max-content;
+    margin: auto;
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.table h3, .table-2 h2 {
+    width: 100%;
+    color: #4E8198;
+}
+
+.table-2 .program {
+    margin: auto;
+    outline: 2px solid #4e819823;
+    padding: 1%;
+}
+
+.table div {
+    width: 100%;
+    height: max-content !important;
+    display: grid;
+    /* line-height: 30px; */
+    grid-auto-flow: column !important;
+    justify-content: space-around;
+    justify-items: right;
+    border-bottom: 1px solid black;
+}
+
+.table div span {
+    width: 98% !important;
+    min-width: 5vmax;
+    height: max-content !important;
+    /* text-align: center; */
+    border-right: 1px solid black;
+    font-size: 0.8em;
+}
+
+.table .heads {
+    background-color: #4E8198;
+    color: white;
+}
+
+.main-nav {
+    @apply w-full h-[3em] bg-primary-500 sticky top-0 z-[1000] flex leading-[3em] justify-between shadow-2xl;
+}
+
+.clickable-logo {
+    display: grid;
+    grid-auto-flow: column;
+    color: white;
+    height: inherit;
+    line-height: 3em;
+    align-content: center;
+    margin: 0 0.5rem 0 0;
+}
+
+.main-nav span img {
+    height: 2.8em !important;
+    width: 3em !important;
+}
+
+.main-nav span h1 {
+    margin: auto;
+    font-weight: lighter !important;
+    cursor: default;
+}
+
+/* .detail h1{
+    color: #4E8198;
+} */

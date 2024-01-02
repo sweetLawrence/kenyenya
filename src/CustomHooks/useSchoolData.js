@@ -1,0 +1,42 @@
+
+
+export default function useSchoolData() {
+    const phone = ["+254722603963"]
+    const email = "kenyenyattc@gmail.com"
+    const mantras = {
+        vision: "To be a Leading Institution in Education and Training",
+        mission: "To effectively implement teacher training curriculum in a stimulative environment in order to produce innovative and efficient educators",
+        motto: "Training for the future"
+    }
+    const background = "Established in May 2012, Kenyenya Teachers Training College replaced Kisii Teachers College, which was previously integrated into Egerton University and later became Kisii University. Sponsored by the Ministry of Education, specifically the State Department of Basic Education, the college's main responsibility is to train teachers for primary schools, covering early childhood to senior primary levels. It is located in Kenyenya Sub-County, Kisii County, Kenya, on a 50-acre parcel of land in Riokindo zone, providing ample space for training facilities and potential expansion. Led by Colonel John Oyunge as the founding Chairman and Mr. Peter Nyambane Okirigiti as Principal, the college effectively mobilized resources and collaborated with the local community, establishing a strong foundation based on a simple blueprint that form the basis of its current structure.#In 2012, the college welcomed its inaugural batch of students, who sat for their first Primary Teachers Examination (PTE) in July 2014. Recognizing the importance of aligning the country's educational landscape with global competitiveness, as advocated by the Sustainable Development Goal (SDG) of ensuring inclusive and equitable quality education and promoting lifelong learning opportunities for all, and in line with Kenya Vision 2030's social pillar, which emphasizes the provision of globally competitive quality education, training, and research, the college is strategically positioned to meet the nation's educational needs.#Presently, the college has undergone significant transformation and has emerged as a leading institution in providing competency-based curriculum and training for secondary and primary schools teachers in the broader western Kenya region.";
+    const chair = "The Board of Management (BOM) expresses its profound appreciation to the Ministry of Education, specifically the State Department for Basic Education, for their unwavering support and significant contributions. This invaluable support has empowered Kenyenya TTC to deliver exceptional education and training programs for in-service and upgrade purposes, greatly benefiting primary school teachers. The Ministry's steadfast commitment to providing qualified tutors has played a pivotal role in upholding high standards and keeping abreast of pedagogical advancements. Additionally, the Board acknowledges the parents who have entrusted us with their sons and daughters, allowing them to access our abundant knowledge resources. We deeply value your faith and confidence in our institution. We humbly request that you continue providing your valuable support to us.#Since its establishment in 2012, Kenyenya TTC has become a recognized center of excellence in teacher education, not only in our country but also in the East Africa region and beyond. Our vision for the future includes becoming a leading hub for innovation and research in teacher education.#Our commitment to quality education and the empowerment of our teachers remains steadfast. With our collective efforts and unwavering determination, we are confident that the best is yet to come.";
+    const princi = "Kenyenya TTC provides a conducive learning environment with a humble background and serene surroundings for our students. The college operates with well-established structures and a coherent policy that guides our traditions of admitting students, providing comprehensive preparation, and delivering well-prepared graduates to the teaching services market.#Moreover, we are committed to forging strong partnerships with schools, government agencies, and stakeholders to enhance the practical aspects of our training programs. By actively engaging with the community and embracing emerging technologies, we strive to equip our students with the necessary skills and knowledge to excel as educators in the 21st century. #In our pursuit of offering quality education, we prioritize fairness by implementing flexible payment options for our students, ensuring that those who may face financial disadvantages are not left behind.#As we move forward, we will continue to endeavor to provide the best educational offerings for the market. Additionally, we aspire to become master trainers for the experts being prepared for the Competency-Based Programs being launched in the country.#We extend our sincere gratitude to the community for their continuous support, which encompasses providing essential resources and ensuring our safety within our surroundings. Your unwavering support makes you an invaluable neighbor, and we deeply appreciate your contribution. Our dedication remains unwavering as we aim to deliver excellence in education and shape the future of our students and the education sector as a whole.";
+    const academic_data ="The college has consistently demonstrated commendable progress, as evidenced by the positive growth observed in students' end-of-term assessments and final external exams for KNEC. Over the past seven years, from 2014 onwards in our records, the college has maintained an impressive average mean score of 5.1 across seven consecutive examinations. This performance surpasses that of similar institutions, establishing us as champions who uphold exceptional standards.Furthermore, our tracer studies have revealed that our students have dispersed across various schools, receiving positive feedback. In fact, some of our former students have assumed leadership positions as head teachers in prestigious private academies in different regions.#We remain committed to upholding these high standards and will continue to do so in the future because it forms part of our core mandate.";
+    const extra_curriculum_data = "The college strongly believes in providing comprehensive training that encompasses all aspects of personal development. Within our institution, we actively nurture individual talents by exposing our trainers to a diverse range of talent exploration opportunities. This approach ensures that when these trainers are eventually deployed into teaching positions, the process of talent identification will be streamlined and optimized.#Notably, Kenyenya College has gained a reputation for outstanding drama performances, regularly participating in regional and national platforms where we have achieved recognition by winning awards for the best performances or securing runner-up positions. This exceptional level of performance has also extended to our involvement in music and dance competitions.#Moreover, we have consistently fielded students in various ball game competitions, and their achievements have been highly encouraging. In athletics, our extensive facilities and favorable climatic conditions have allowed us to produce exceptional individual talents who are poised to compete at the national level.#It is our expectation that all these activities, which contribute to individual growth, will be transferred and replicated in the teaching practices of our learners once they are assigned to various schools.";
+    
+    const principals = {
+        x: ["No:", "Principal's Name", 'From', 'To'],
+        y: [
+            ["1", "Mr. Peter Nyambane", "2012", "2014"],
+            ["2", "Mr. John Monyorwa", "2014", "2016"],
+            ["3", "Mrs. Lorraine Mukoya", "2016", "2017"],
+            ["4", "Mrs. Jane Tallam", "2017", "2019"],
+            ["5", "Dr. Tabitha Mwaniki", "2019", "2023"],
+            ["6", "Mr. John E. Nyedia", "2023", "to Date"]
+        ]
+    }
+
+    const schoolManagementStructure = [
+        "Board Of Management",
+        "The Principal",
+        "The Deputy Principal",
+        "The Dean of Curriculum",
+        "The Dean of Student Trainees",
+        "Head of Department(s)",
+        "Trainees Council",
+    ]
+
+    return { phone, email, mantras, background, chair, princi,performance, principals, academic_data,extra_curriculum_data,
+        schoolManagementStructure
+    }
+}

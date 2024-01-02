@@ -1,0 +1,68 @@
+.t-announcement {
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  height: 100vh;
+
+  /* flex-wrap: wrap;    */
+}
+.t-announcement .left,
+.middle,
+.right {
+  /* background: red; */
+  border: 0.6px solid rgb(160, 159, 159);
+  width: 30%;
+  aspect-ratio: 4/3;
+  margin: 0.4em;
+  margin-top: -6em;
+  display: grid;
+  border-radius: 10px;
+  /* place-content: center; */
+  padding: 2rem;
+}
+.t-announcement .left {
+  /* position: relative; */
+  /* background: white; */
+  /* filter: brightness(0.1); */
+}
+.t-announcement .left .closed {
+ color: #ff4870;
+}
+.t-announcement .link {
+  text-decoration: none;
+  color: blue;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #ff4870;
+}
+.t-announcement .link:hover {
+  cursor: pointer;
+}
+.t-announcement .link p {
+  animation: dance 0.8s forwards infinite;
+}
+@keyframes dance {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .t-announcement {
+    flex-direction: column;
+    height: auto;
+  }
+  .t-announcement .left,
+  .middle,
+  .right {
+    width: 90%;
+    margin-top: 0.4em;
+  }
+}

@@ -1,0 +1,352 @@
+
+#home-page {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+}
+#home-page .title {
+    width: 95%;
+    min-height: 60vh;
+    height: 50vh;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+#home-page .title .details {
+    flex: 1 0 20%;
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    justify-content: space-around !important;
+    font-size: 12px;
+}
+#home-page .title .details img {
+    width: 200px;
+    object-fit: contain;
+    height: 100%;
+}
+#home-page .title .details h1 {
+    @apply text-primary text-[8ch] ;
+    width: 100%;
+    /*color: #447489;*/
+    /*font-size: clamp(2vmax, 4em, 6rem);*/
+    text-align: center;
+    line-height: 1;
+}
+
+@media screen and (max-width: 768px) {
+    #home-page .title .details {
+        gap: 1rem;
+    }
+    #home-page .title .details h1 {
+        font-size: calc(8vmin + 0.2rem);
+        padding-top: 5%;
+    }
+}
+
+#home-page .title .details span {
+    display: grid;
+    /* grid-auto-flow: row; */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.2rem;
+    width: 90%;
+}
+#home-page .title .details span a {
+    background-color: #FF4870;
+    width: calc(100% - 1rem);
+    height: max-content;
+    max-width: 200px;
+    margin: auto;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content:center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    line-height: 2em;
+    padding: 0 0.5rem 0rem 0rem;
+    border-radius: 5px;
+}
+#home-page .title .details span a svg {
+    margin: auto;
+}
+#home-page .title .images {
+    flex: 1 1 70%;
+    width: 100%;
+    height: 100%;
+    height: 60vh;
+    min-width: 300px;
+    padding: 0.5rem 0 0 0;
+    box-sizing: content-box !important;
+}
+.image-gallery {
+    /* height: inherit; */
+    height: 60vh;
+}
+@media only screen and (max-width: 767px) {
+    #home-page .title {
+        height: max-content !important;
+     }
+}
+#home-page .title .images img {
+    width: 100%;
+    object-fit: cover;
+    box-sizing: content-box;
+    height: 60vh;
+}
+/*  */
+.image-gallery-bullets {
+    z-index: 15;
+}
+#home-page .title .images button {
+    z-index: 15;
+    /* transform: scale(0.5); */
+    height: 20%;
+    padding: unset;
+    outline: transparent;
+    min-height: 1rem !important;
+    min-width: 1rem;
+}
+#home-page .title .images button svg {
+    margin: auto;
+    height: 100%;
+    color: #FF4870;
+}
+
+#home-page .mantras {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#home-page .mantras .mantra-div {
+    flex: 1 1 300px;
+    background-color: #4E8198;
+    min-height: 15vh;
+    color: white;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 35% 5% 60%;
+    justify-items: center;
+    align-items: center;
+}
+.mantra-div * {
+    z-index: 5 !important;
+}
+.mantra-div h2 {
+    width:90%;
+    /* word-break: break-all; */
+    font-size: clamp(2vmax, 3vmax, 4vmax);
+    margin: auto;
+    text-align: center;
+}
+.mantra-div .divider {
+    width: 20%;
+    height: 80%;
+    background-color: white;
+    border-radius: 15px;
+    margin: auto;
+}
+.mantra-div p {
+    padding: 0.5rem;
+}
+.mantra-div #bg-wave {
+    bottom: 0;
+    z-index: 1 !important;
+    width: 80%;
+    height: 50%;
+}
+
+.tri-page {
+    width: 95%;
+    margin: auto;
+}
+.tri-page .caption-img {
+    height: 50vh;
+}
+.tri-page .text .title-h1 {
+    text-align: left;
+    width: 100%;
+    margin: auto;
+}
+.tri-page .text {
+    width: 100% !important;
+}
+#home-page .tri-page .text div {
+    width: 100%;
+    min-width: 300px;
+    text-align: left;
+    /* padding: 0% 2% 2% 2%; */
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+    justify-items: center;
+}
+#home-page .tri-page .text div #school-about {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 14;
+           line-clamp: 14; 
+    -webkit-box-orient: vertical;
+}
+
+#home-page .tri-page .text div #school-about:after{
+    content: "";
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(to top, white, transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#home-page iframe {
+    width: 75%;
+    /* height: 450px; */
+    height: 270px;
+    margin: auto;
+}
+footer {
+    width: 100%;
+    min-height: 40vh;
+    height: max-content !important;
+    background-color: #4E8198;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: max-content;
+    color: white;
+}
+footer .links {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+footer .links div {
+    display: grid;
+    grid-auto-flow: row;
+    text-align: left;
+    /* gap: 1rem; */
+}
+footer .links div span {
+    min-height: 2.5em;
+    line-height: 2.5em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 10%;
+}
+footer .links div span a {
+    margin: auto 0 auto 0;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+    /* height: 1.5rem; */
+    min-height: 2em;
+    line-height: 1.5rem;
+}
+footer a:hover {
+    color: #b1b1b1;
+}
+footer svg {
+    margin: auto 0 auto 0;
+}
+footer img {
+    max-width: unset !important;
+    height: 50% !important;
+    top: 50% !important;
+}
+
+/* ************************************************************************************* */
+#about-page {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+}
+
+/* ************************************************************************************** */
+#gallery-page h1 {
+    width: 95%;
+    margin: auto;
+    text-align: left;
+    color: #447489;
+}
+#gallery-page div {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    display: -ms-grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+#gallery-page .caption-img {
+    height: 80vh;
+    max-height: 300px !important;
+    overflow: hidden;
+}
+#gallery-page .caption-img img {
+    height: 100%;
+    object-position: top;
+    margin: auto;
+    object-fit: cover;
+}
+
+/* ************************************************************************************** */
+.application-form input {
+
+}
+
+/* ************************************************************************************** */
+#announcement-page .list{
+    width: 95%;
+    height: inherit;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+#announcement-page .list h1 {
+    top: 30vh;
+    color: #FF4870;
+    align-self: center;
+    vertical-align: middle;
+}
+
+/* ************************************************************************************** */
+#administration-page .container {
+    width: 95%;
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+#administration-page h1 {
+    width: 100%;
+    color: #447489;
+    font-size: 1.3rem;
+}
+#administration-page .container div {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.5rem;
+}
+#administration-page .container div span {
+    width: 100%;
+    min-height: 3em;
+    background-color: #4E8198;
+}
+#administration-page .container div span select {
+    width: 100%;
+    height: 100%;
+    background-color: #4E8198;
+    color: white;
+}
+#administration-page .container div span p{
+    text-align: left !important;
+    /* height: 90%; */
+    color: white;
+    padding: 0.5rem;
+    /* padding: 5%; */
+}

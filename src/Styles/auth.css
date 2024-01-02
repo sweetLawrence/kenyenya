@@ -1,0 +1,88 @@
+.auth {
+  /* background: red; */
+  width: 50%;
+  margin:auto;
+  /* border: 1px solid grey; */
+  height: 100vh;
+  overflow: hidden;
+  /* background: #ddd; */
+}
+.auth .input-container {
+  /* border: 1px solid red; */
+}
+.auth .buttonSelect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth .inp {
+  margin-bottom: 0.8em;
+}
+.auth .title {
+  color: #007bff;
+  font-size: 1.4em;
+  font-weight: 640;
+  margin-top: -0.4em;
+  margin-bottom: 0.4em;
+}
+.auth .login {
+  padding: 1em;
+  border: 1px solid white;
+  height: 70vh;
+  /* width: 50%; */
+  margin: 0 auto;
+  border-radius: 10px;
+   background: #efefef;
+   /* background: linear-gradient(to right,#007bff,#ff4870); */
+  /* border: 1px solid red; */
+}
+.auth .schoolLogo {
+  /* background: red; */
+}
+.auth .schoolLogo img{
+  margin: 0 auto;
+  scale: .9;
+  margin-top: -20px;
+  margin-bottom: 10px;
+
+}
+.buttonSelect div {
+  background: #007bff;
+  color: white;
+  padding: 0.7em;
+  border: 0.1px solid white;
+  border-radius: 4px;
+  width: 160px;
+  margin: 1.2em 2em 1.2em 2em;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.buttonSelect .loginBtn,
+.signUpBtn {
+  transition: all 2s;
+  font-weight: 700;
+}
+
+.auth .footer button {
+  background: #007bff;
+  color: white;
+  padding: 0.7em;
+  border: 0.1px solid white;
+  border-radius: 4px;
+  width: 160px;
+  margin: 1.2em 0em 1.2em 0em;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .auth {
+    width: 90%;
+  }
+  .auth .footer button {
+    margin: 1.2em 0em 1.2em 0em;
+  }
+  .buttonSelect div {
+    margin: 1.2em 2em 1.2em 2em;
+  }
+}
