@@ -235,7 +235,7 @@ function Application2() {
       const accessToken = localStorage.getItem('accessToken');
       if (accessToken) {
         try {
-          const response = await axios.get('https://67cc-154-159-237-203.ngrok-free.app/api/applicant', {
+          const response = await axios.get('https://d8dc-154-159-237-69.ngrok-free.app/api/applicant', {
             headers: {
               accessToken: accessToken,
             },

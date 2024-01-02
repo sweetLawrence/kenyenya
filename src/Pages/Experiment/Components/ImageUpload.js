@@ -25,7 +25,7 @@ const ImageUpload = ({ formData, setFormData }) => {
       //   profilePhoto: selectedImage,
       // });
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.patch('https://67cc-154-159-237-203.ngrok-free.app/api/upload', newformData, {
+      const response = await axios.patch('https://d8dc-154-159-237-69.ngrok-free.app/api/upload', newformData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           headers: {
