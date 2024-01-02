@@ -97,7 +97,7 @@ const DocumentUpload = ({ label, setFormData }) => {
                     {
                         headers: {
                             accessToken: accessToken,
-                            'Content-Type': 'multipart/form-data',
+                            // 'Content-Type': 'multipart/form-data',
                         },
                     }
                 );
