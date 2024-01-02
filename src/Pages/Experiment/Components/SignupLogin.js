@@ -47,7 +47,7 @@ function SignupLogin() {
             } else if (!login.kcseIndex) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
-                const response = await axios.post('http://localhost:3001/api/login', login);
+                const response = await axios.post('https://67cc-154-159-237-203.ngrok-free.app/api/login', login);
                 const accessToken = response.data;
                 localStorage.setItem('accessToken', accessToken);
                 // alert(accessToken)
@@ -73,7 +73,7 @@ function SignupLogin() {
             } else if (!signup.kcseIndex) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
-                const response = await axios.post('http://localhost:3001/api/signup', signup);
+                const response = await axios.post('https://67cc-154-159-237-203.ngrok-free.app/api/signup', signup);
                 const accessToken = response.data;
                 localStorage.setItem('accessToken', accessToken);
 

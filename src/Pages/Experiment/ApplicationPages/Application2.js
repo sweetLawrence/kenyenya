@@ -217,11 +217,11 @@ function Application2() {
     const accessToken = localStorage.getItem("accessToken");
     try {
       if (accessToken) {
-        const response = await axios.patch('http://localhost:3001/api/update-applicant', formData, {
+        const response = await axios.patch('https://67cc-154-159-237-203.ngrok-free.app/api/update-applicant', formData, {
           headers: {
             accessToken: accessToken,
           },
-        });
+        });//http://localhost:3001
         console.log("3456789rdtfuhj", response);
       }
 
@@ -235,7 +235,7 @@ function Application2() {
       const accessToken = localStorage.getItem('accessToken');
       if (accessToken) {
         try {
-          const response = await axios.get('http://localhost:3001/api/applicant', {
+          const response = await axios.get('https://67cc-154-159-237-203.ngrok-free.app/api/applicant', {
             headers: {
               accessToken: accessToken,
             },
