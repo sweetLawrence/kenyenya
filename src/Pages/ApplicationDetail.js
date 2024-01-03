@@ -23,7 +23,7 @@ const ApplicationDetail = () => {
                     How to Apply - Joining Instructions
                 </div>
                 <h2> Intake Programs</h2>
-                <i>No Cluster Point Required</i>
+                {/* <i>No Cluster Point Required</i> */}
                 <p className="new-intake">1. (DECTE Level)</p>
 
                 <div className="detail-level">
