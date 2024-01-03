@@ -89,7 +89,7 @@ function SignupLogin() {
                 // const response = apiCall.post('/signup',signup);
                 const response = await axios.post(`${basePath}/api/signup`, signup);
                 const accessToken = response.data;
-                alert(accessToken);
+                // alert(accessToken);
                 localStorage.setItem('accessToken', accessToken);
                 if (!accessToken || accessToken == undefined) {
                     alert("Error signing you up, contact support");

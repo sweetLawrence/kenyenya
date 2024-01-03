@@ -25,7 +25,7 @@
   background-color: #007bff;
   border: 0.1px solid #007bff;
   border-radius: 10px;
-  transition: all 0.5s;
+  transition: all .6s;
 }
 .form .footer button {
   background: #007bff;

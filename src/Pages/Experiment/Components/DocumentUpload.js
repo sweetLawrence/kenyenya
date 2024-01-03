@@ -22,7 +22,7 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
         if (selectedFile) {
             const newformData = new FormData();
             newformData.append(name, selectedFile);
-            alert(label.toLowerCase().replace(/\s+/g, ''))
+            // alert(label.toLowerCase().replace(/\s+/g, ''))
             const newLabel = label.toLowerCase().replace(/\s+/g, '');
             const accessToken = localStorage.getItem('accessToken');
             axios.patch(`${basePath}/api/file_upload/${name}`, newformData, {
