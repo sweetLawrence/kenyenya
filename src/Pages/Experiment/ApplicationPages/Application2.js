@@ -151,6 +151,8 @@ function Application2() {
     kcseleavingcertificate:"",
     recommendation:"",
     nhifcard: "",
+    ecdecertificate:"",
+    ptecertificate:"",
     admissionletter: "",
     regulationdeclaration: "",
     resultslip: "",

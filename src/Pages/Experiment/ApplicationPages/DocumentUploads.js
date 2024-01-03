@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DocumentUpload from '../Components/DocumentUpload'
 
 const DocumentUploads = ({ formData, setFormData }) => {
+  useEffect(() => {
+    console.log("Level:", formData.level);
+    console.log("Course:", formData.course);
+  }, [])
 
   const handleFileUpload = (name, file) => {
     console.log(`FRONTEND File ${name} uploaded:`, file);
     // setFormData({
-      // ...formData,
-      // [name.toLowerCase().replace(/\s+/g, '')]: file.name,
-  // });
-   
+    // ...formData,
+    // [name.toLowerCase().replace(/\s+/g, '')]: file.name,
+    // });
+
   };
   return (
     <div className="docs-uploads">
@@ -22,11 +26,12 @@ const DocumentUploads = ({ formData, setFormData }) => {
       <DocumentUpload label="Filled Admission Letter" name="admissionletter" onFileSelect={handleFileUpload} value={formData.admissionletter} formData={formData} setFormData={setFormData} />
       <DocumentUpload label="Passport Photo" name="passportphoto" onFileSelect={handleFileUpload} value={formData.passportphoto} formData={formData} setFormData={setFormData} />
       <DocumentUpload label="NHIF Card" name="nhifcard" onFileSelect={handleFileUpload} value={formData.nhifcard} formData={formData} setFormData={setFormData} />
-      {/* <DocumentUpload label="NHIF Card" formData={formData} setFormData={setFormData} />
-      <DocumentUpload label="Admission Letter" formData={formData} setFormData={setFormData} />
-      <DocumentUpload label="Regulation Declaration" formData={formData} setFormData={setFormData} />
-      <DocumentUpload label="Result Slip" formData={formData} setFormData={setFormData} />
-      <DocumentUpload label="Course Acceptance Declaration" formData={formData} setFormData={setFormData} /> */}
+      {(formData.level == "Upgrading Intake" && formData.course == "Diploma in Early Childhood Teacher Education (DECTE)") && (
+        <DocumentUpload label="ECDE Certificate" name="ecdecertificate" onFileSelect={handleFileUpload} value={formData.ecdecertificate} formData={formData} setFormData={setFormData} />
+      )}
+      {(formData.level == "Upgrading Intake" && formData.course == "Diploma in Primary Teacher Education (DPTE)") && (
+        <DocumentUpload label="PTE Certificate" name="ptecertificate" onFileSelect={handleFileUpload} value={formData.ptecertificate} formData={formData} setFormData={setFormData} />
+      )}
 
     </div>
   )
