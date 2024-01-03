@@ -246,6 +246,9 @@
   color: #007bff;
   font-size: 1em;
   font-weight: 700;
+  width: 10px;
+  /* margin-left:100px; */
+  /* margin-right: .5em; */
 }
 .document-upload-container .down button{
  margin-left:2.5em ;

@@ -44,9 +44,9 @@ function SignupLogin() {
 
     async function handleLogin() {
         try {
-            if (!login.email) {
+            if (!login.email || !login.email.includes('@')) {
                 toast.error('Please fill in your email address ');
-            } else if (!login.kcseIndex) {
+            } else if (!login.kcseIndex || !login.kcseIndex.includes('/')) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/login',login);
@@ -71,9 +71,9 @@ function SignupLogin() {
 
     async function handleSignUp() {
         try {
-            if (!signup.email) {
+            if (!signup.email || !login.email.includes('@')) {
                 toast.error('Please fill in your email address ');
-            } else if (!signup.kcseIndex) {
+            } else if (!signup.kcseIndex || !login.kcseIndex.includes('/')) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/signup',signup);
@@ -125,6 +125,7 @@ function SignupLogin() {
             {/* login */}
             {loginSelected && (
                 <div className="login animate__animated animate__fadeInLeft" >
+                    <form>
                     <div className="input-container">
                         <div className="schoolLogo">
                             <img src={schoolLogo} alt="logo" />
@@ -133,10 +134,10 @@ function SignupLogin() {
                         <label className="input-label">Email</label>
                         <input
                             className="input-field inp"
-                            type="text"
+                            type="email"
                             placeholder="Enter Email"
                             value={login.email}
-                            // required 
+                            required 
                             onChange={(event) => handleTextChange(event.target.value, "email")}
                         />
 
@@ -147,14 +148,18 @@ function SignupLogin() {
                             type="text"
                             placeholder="E.g 41725253026/2019"
                             value={login.kcseIndex}
-                            // required 
+                            minLength="16"
+                            maxLength="16"
+                            required 
                             onChange={(event) => handleTextChange(event.target.value, "kcseIndex")}
                         />
                     </div>
                     <div className="footer">
                         <button
+                            type="submit"
                             onClick={handleLogin}>Log In</button>
                     </div>
+                    </form>
                 </div>
             )}
 
@@ -162,6 +167,7 @@ function SignupLogin() {
             {/* signup */}
             {signupSelected && (
                 <div className="login signup animate__animated animate__fadeInRight">
+                    <form>
                     <div className="input-container">
                         <div className="schoolLogo">
                             <img src={schoolLogo} alt="logo" />
@@ -170,10 +176,10 @@ function SignupLogin() {
                         <label className="input-label">Email</label>
                         <input
                             className="input-field inp"
-                            type="text"
+                            type="email"
                             placeholder="Enter Email"
                             value={signup.email}
-                            // required 
+                            required 
                             onChange={(event) => handleTextChange(event.target.value, "email")}
                         />
 
@@ -184,14 +190,18 @@ function SignupLogin() {
                             type="text"
                             placeholder="E.g 41725253026/2019"
                             value={signup.kcseIndex}
-                            // required 
+                            minLength="16"
+                            maxLength="16"
+                            required 
                             onChange={(event) => handleTextChange(event.target.value, "kcseIndex")}
                         />
                     </div>
                     <div className="footer">
                         <button
+                            type="submit"
                             onClick={handleSignUp}>Start</button>
                     </div>
+                    </form>
                 </div>
             )}
 

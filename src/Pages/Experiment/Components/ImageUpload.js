@@ -35,6 +35,7 @@ const ImageUpload = ({ formData, setFormData }) => {
         },
       });
       setSelectedImage(null);
+      console.log(response.data.url)
       // setUrl(response.data.url);
       setFormData({
         ...formData,
