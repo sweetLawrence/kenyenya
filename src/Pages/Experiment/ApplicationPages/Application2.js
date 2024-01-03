@@ -25,6 +25,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import basePath from "../../../Utilities/axios";
 
 
 function Application2() {
@@ -192,9 +193,9 @@ function Application2() {
   };
   const [isExpanded, setIsexpanded] = useState(false);
 
-  function handleBack(){
-    setHighlightIndex((curr)=>curr-1)
-    setActiveIndex((curr)=>curr-1)
+  function handleBack() {
+    setHighlightIndex((curr) => curr - 1)
+    setActiveIndex((curr) => curr - 1)
   }
 
   function handleClick() {
@@ -203,8 +204,8 @@ function Application2() {
       currentpage: String(page + 1),
     }));
     sendDataToBackend();
-    setHighlightIndex((curr)=>curr+1)
-    setActiveIndex((curr)=>curr+1)
+    setHighlightIndex((curr) => curr + 1)
+    setActiveIndex((curr) => curr + 1)
   }
 
 
@@ -217,7 +218,7 @@ function Application2() {
     const accessToken = localStorage.getItem("accessToken");
     try {
       if (accessToken) {
-        const response = await axios.patch('https://b3d0-154-159-237-69.ngrok-free.app/api/update-applicant', formData, {
+        const response = await axios.patch(`${basePath}/api/update-applicant`, formData, {
           headers: {
             accessToken: accessToken,
           },
@@ -236,19 +237,22 @@ function Application2() {
       const ngrokSkipBrowserWarningValue = 'anyValue';
       if (accessToken) {
         try {
-          const response = await axios.get('https://b3d0-154-159-237-69.ngrok-free.app/api/applicant', {
+          const response = await axios.get(`${basePath}/api/applicant`, {
             headers: {
               accessToken: accessToken,
-              'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
+              // 'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
             },
           });
           const server_data = response.data[0];
-          console.log("responseData", server_data)
+          console.log("responseData", server_data);
           setFormData(server_data);
         } catch (error) {
           console.error('Error fetching user data:', error);
         }
+      } else if (!accessToken) {
+        navigation('/loginpage');
       }
+
     };
 
     fetchData();
@@ -294,14 +298,14 @@ function Application2() {
         </div>
       </div>
       <div className="left">
-        <div> 
+        <div>
           <div className="logo">
             <img src={schoolLogo} alt="school logo" onClick={() => setPage(0)} />
           </div>
           <div className="section-navigation">
             {Navdata.map((val, index) => (
               <div className="row"
-              style={{ backgroundColor: highlightIndex === index ? 'rgba(0, 123, 255, 0.9)' : 'rgb(246, 244, 244)',color:activeIndex === index ?'#fff':'black' }}
+                style={{ backgroundColor: highlightIndex === index ? 'rgba(0, 123, 255, 0.9)' : 'rgb(246, 244, 244)', color: activeIndex === index ? '#fff' : 'black' }}
                 // style={{ backgroundColor: activeIndex === index ? 'rgba(0, 123, 255, 0.9)' : 'rgb(246, 244, 244)',color:activeIndex === index ?'#fff':'black' }}
                 key={index} onClick={() => handleLeftNavItemClick(index)}>
                 {icons[index]}
@@ -340,7 +344,7 @@ function Application2() {
               onClick={() => {
                 handleBack()
                 setPage((currPage) => currPage - 1);
-                
+
               }}
             >
               Prev

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../../Styles/upload.css';
 import { Toaster, toast } from 'sonner'
 import axios from 'axios'
+import basePath from '../../../Utilities/axios';
 
 const ImageUpload = ({ formData, setFormData }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -25,12 +26,12 @@ const ImageUpload = ({ formData, setFormData }) => {
       //   profilePhoto: selectedImage,
       // });
       const accessToken = localStorage.getItem('accessToken');
-      const response = await axios.patch('https://b3d0-154-159-237-69.ngrok-free.app/api/upload', newformData, {
+      alert(accessToken)
+      const response = await axios.patch(`${basePath}/api/upload`, newformData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-          headers: {
-            accessToken: accessToken,
-          },
+          accessToken: accessToken,
+          'Content-Type': 'multipart/form-data'
+
         },
       });
       setSelectedImage(null);
@@ -39,13 +40,20 @@ const ImageUpload = ({ formData, setFormData }) => {
         ...formData,
         profilephoto: response.data.url,
       });
-      console.log(response.data)
 
-      setLoading(false);
+      if (!response.data.error) {
+        console.log("repsonsedailbevacwbvd", response.data)
+        toast.success(`Profile Picture Uploaded Successfully`)
+        // setTimeout(() => {
+        setNotification(null);
+        setLoading(false);
+      } else {
+        toast.error('You are not logged in');
+      }
+
+
       // setNotification('Image uploaded successfully');
-      toast.success(`Profile Picture Uploaded Successfully`)
-      // setTimeout(() => {
-      setNotification(null);
+
       // }, 2000);
 
     } else {
@@ -82,9 +90,9 @@ const ImageUpload = ({ formData, setFormData }) => {
             style={{ maxWidth: '100%', maxHeight: '200px' }}
           />
           <div className="action_btns">
-            <button 
-            className='delete-button'
-            onClick={handleDelete}>Delete</button>
+            <button
+              className='delete-button'
+              onClick={handleDelete}>Delete</button>
           </div>
 
         </div>

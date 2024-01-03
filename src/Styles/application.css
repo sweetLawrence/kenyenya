@@ -233,6 +233,22 @@
 }
 .mobileleft {
   display: none;
+
+}
+
+.document-upload-container .down{
+  display: flex;
+  /* background: red; */
+  justify-content: center;
+  align-items: center;
+}
+.document-upload-container .down p{
+  color: #007bff;
+  font-size: 1em;
+  font-weight: 700;
+}
+.document-upload-container .down button{
+ margin-left:2.5em ;
 }
 /* Mobile Manenoz*/
 @media screen and (max-width: 768px) {

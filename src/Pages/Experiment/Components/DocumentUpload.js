@@ -1,140 +1,76 @@
-// import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
-// import { Toaster, toast } from 'sonner'
-
-// const DocumentUpload = ({ label, formData, setFormData }) => {
-//     const [documentFile, setDocumentFile] = useState(null);
-//     const [loading, setLoading] = useState(false);
-//     const [notification, setNotification] = useState(null);
-
-//     const handleDocumentChange = (event) => {
-//         const file = event.target.files[0];
-//         setDocumentFile(file);
-//     };
-
-//     const handleDocumentUpload = () => {
-//         if (documentFile) {
-//             setLoading(true);
-
-//             setTimeout(() => {
-//                 setFormData({
-//                     ...formData,
-//                     [label.toLowerCase().replace(/\s+/g, '')]: documentFile, 
-//                 });
-
-//                 setLoading(false);
-//                 setNotification('Document uploaded successfully');
-//                 toast.success(`${label} Uploaded Successfully`) 
-//                 setTimeout(() => {
-//                     setNotification(null);
-//                 }, 2000);
-//             }, 2000);
-//         } else {
-//             setNotification('Please upload the document');
-//             toast.error('Please upload the document');
-//         }
-//     };
-
-//     return (
-//         <div className='document-upload-container'>
-//             <label>{label}</label>
-//             <div className="doc-input">
-//                 <input type='file' accept='image/*,.pdf' className='file-input' onChange={handleDocumentChange} />
-//                 <button className='doc-upload-button' onClick={handleDocumentUpload} disabled={loading}>
-//                     {loading ? 'Uploading...' : 'Upload Document'}
-//                 </button>
-//             </div>
-//             <Toaster richColors position="top-center" style={{ marginTop: '50px',marginLeft:'60px',zIndex:5,width:'80%'}}/>
-
-//             {/* {notification && <div className='notification'>{notification}</div>} */}
-
-//         </div>
-//     );
-// };
-
-// DocumentUpload.propTypes = {
-//     label: PropTypes.string.isRequired,
-//     formData: PropTypes.object.isRequired,
-//     setFormData: PropTypes.func.isRequired,
-// };
-
-// export default DocumentUpload;
-
-
-
-
-
-
-
-// DocumentUpload.js
-
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Toaster, toast } from 'sonner';
 import axios from 'axios';
+import { Toaster, toast } from 'sonner';
+import basePath from '../../../Utilities/axios';
 
-const DocumentUpload = ({ label, setFormData }) => {
-    const [documentFile, setDocumentFile] = useState(null);
-    const [loading, setLoading] = useState(false);
+const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormData }) => {
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fieledValue,setFieldValue] = useState('');
 
-    const handleDocumentChange = (event) => {
+
+    const handleFileChange = (event) => {
         const file = event.target.files[0];
-        setDocumentFile(file);
+
+        if (file && file.type === 'application/pdf') {
+            setSelectedFile(file);
+        } else {
+            console.error('Please select a valid PDF file.');
+        }
     };
 
-    const handleDocumentUpload = async () => {
-        if (documentFile) {
-            setLoading(true);
+    const handleFileSubmit = () => {
+        if (selectedFile) {
+            const newformData = new FormData();
+            newformData.append(name, selectedFile);
+            alert(label.toLowerCase().replace(/\s+/g, ''))
+            const newLabel = label.toLowerCase().replace(/\s+/g, '');
+            const accessToken = localStorage.getItem('accessToken');
+            axios.patch(`${basePath}/api/file_upload/${name}`, newformData, {
+                headers: {
+                    accessToken: accessToken,
+                    'Content-Type': 'multipart/form-data'
 
-            try {
-                const formData = new FormData();
-                formData.append(`${label.toLowerCase().replace(/\s+/g, '')}`, documentFile);
+                },
+            })
+                .then((response) => {
+                    console.log(`File ${name} uploaded successfully!`);
+                    console.log(value)
+                    toast.success(`${label} Uploaded Successfully`)
+                    console.log("SERVER", response)
+                    setFormData({
+                        ...formData,
+                        [newLabel]: response.data.originalname,
+                    });
+                    // setFieldValue(response.data)
 
-                const accessToken = localStorage.getItem('accessToken');
-                const response = await axios.post(
-                    `https://b3d0-154-159-237-69.ngrok-free.app/api/file_upload`,
-                    formData,
-                    {
-                        headers: {
-                            accessToken: accessToken,
-                            'Content-Type': 'multipart/form-data',
-                        },
-                    }
-                );
+                })
+                .catch((error) => {
+                    console.error(`Error uploading file ${name}:`, error);
+                });
 
-                setFormData((prevData) => ({
-                    ...prevData,
-                    [label.toLowerCase().replace(/\s+/g, '')]: response.data.filePath,
-                }));
-
-                setLoading(false);
-                toast.success(`${label} Uploaded Successfully`);
-            } catch (error) {
-                console.error(`Error uploading ${label} document:`, error);
-                toast.error(`Error uploading ${label} document`);
-            }
+            onFileSelect(name, selectedFile);
+            setSelectedFile(null);
         } else {
-            toast.error('Please upload the document');
+            // console.error('');
+            toast.error('Please select a file before submitting.');
         }
     };
 
     return (
-        <div className="document-upload-container">
+        <div className='document-upload-container'>
             <label>{label}</label>
             <div className="doc-input">
-                <input type="file" accept="application/pdf" className="file-input" onChange={handleDocumentChange} name={label.toLowerCase().replace(/\s+/g, '')} />
-                <button className="doc-upload-button" onClick={handleDocumentUpload} disabled={loading}>
-                    {loading ? 'Uploading...' : 'Upload Document'}
-                </button>
+                <input type="file" accept=".pdf" name={name} onChange={handleFileChange} className='file-input' />
+
+                <div className="down">
+                    <p className=''>{value}</p>
+                    <button className='doc-upload-button' onClick={handleFileSubmit}>Upload</button>
+                </div>
+
             </div>
             <Toaster richColors position="top-center" style={{ marginTop: '50px', marginLeft: '60px', zIndex: 5, width: '80%' }} />
         </div>
     );
-};
-
-DocumentUpload.propTypes = {
-    label: PropTypes.string.isRequired,
-    setFormData: PropTypes.func.isRequired,
 };
 
 export default DocumentUpload;

@@ -18,6 +18,9 @@ import GoodsDelivery from './Components/GoodsDelivery';
 import Contractors from './Components/Contractors';
 import Application2 from './Pages/Experiment/ApplicationPages/Application2';
 import SignupLogin from './Pages/Experiment/Components/SignupLogin';
+import UploadDocument from './Pages/Experiment/Components/UploadDocument';
+import DocumentUpload from './Pages/Experiment/Components/DocumentUpload';
+import DocumentUploads from './Pages/Experiment/ApplicationPages/DocumentUploads';
 
 
 function App() {
@@ -54,6 +57,7 @@ function App() {
                 <Route path="/goods" element={<GoodsDelivery/>}/>
                 <Route path="/contractors" element={<Contractors/>}/>
                 <Route path="/loginpage" element={<SignupLogin />}/>
+                {/* <Route path="/upload_form" element={<DocumentUploads />}/> */}
 
             </Routes>
             <Footer/>

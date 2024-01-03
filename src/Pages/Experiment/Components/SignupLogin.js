@@ -5,6 +5,8 @@ import axios from 'axios'
 import 'animate.css';
 import { Toaster, toast } from "sonner";
 import schoolLogo from '../ApplicationPages/Utils/schoolLogo.png'
+// import basePath from "../../../Utilities/axios";
+import basePath from "../../../Utilities/axios";
 
 function SignupLogin() {
     const [signupSelected, setSignupSelected] = useState(false);
@@ -47,7 +49,8 @@ function SignupLogin() {
             } else if (!login.kcseIndex) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
-                const response = await axios.post('https://b3d0-154-159-237-69.ngrok-free.app/api/login', login);
+                // const response = apiCall.post('/login',login);
+                const response = await axios.post(`${basePath}/api/login`, login);
                 const accessToken = response.data;
                 localStorage.setItem('accessToken', accessToken);
                 // alert(accessToken)
@@ -73,15 +76,22 @@ function SignupLogin() {
             } else if (!signup.kcseIndex) {
                 toast.error('Please fill in your KCSE Index Number/Year ');
             } else {
-                const response = await axios.post('https://b3d0-154-159-237-69.ngrok-free.app/api/signup', signup);
+                // const response = apiCall.post('/signup',signup);
+                const response = await axios.post(`${basePath}/api/signup`, signup);
                 const accessToken = response.data;
+                alert(accessToken);
                 localStorage.setItem('accessToken', accessToken);
+                if (!accessToken || accessToken == undefined) {
+                    alert("Error signing you up, contact support");
+                    navigation('/loginpage')
+                } else {
+                    toast.success(`You can now begin the registration process`)
+                    // alert(accessToken)
+                    setTimeout(() => {
+                        navigation("/application-page");
+                    }, 3000);
+                }
 
-                toast.success(`You can now begin the registration process`)
-                // alert(accessToken)
-                setTimeout(() => {
-                    navigation("/application-page");
-                }, 3000);
             }
 
         } catch (error) {
