@@ -26,6 +26,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import basePath from "../../../Utilities/axios";
+import CourseDocuments from "./CourseDocuments";
 
 
 function Application2() {
@@ -146,21 +147,21 @@ function Application2() {
     // DocumentUploads
     nationalid: "",
     passportphoto: "",
-    birthcertificate:"",
-    kcsecertificate:"",
-    kcpecertificate:"",
-    kcseleavingcertificate:"",
-    recommendation:"",
+    birthcertificate: "",
+    kcsecertificate: "",
+    kcpecertificate: "",
+    kcseleavingcertificate: "",
+    recommendation: "",
     nhifcard: "",
-    ecdecertificate:"",
-    ptecertificate:"",
+    ecdecertificate: "",
+    ptecertificate: "",
     admissionletter: "",
     resultslip: "",
     // CourseDocuments
     // Completeprocess
 
   });
-  const FormTitles = ["Select Course", "Bio Details", "Family Details", "School Details", "Spouse Details", "Co-curricular Activities", "Profile Photo", "Document Uploads"]
+  const FormTitles = ["Select Course", "Bio Details", "Family Details", "School Details", "Spouse Details", "Co-curricular Activities", "Profile Photo", "Document Uploads","Course Documents","Complete Process"]
   const icons = [<HighlightAltIcon style={{ color: '#007bff' }} />, <PersonIcon style={{ color: '#007bff' }} />, <Diversity3Icon style={{ color: '#007bff' }} />, <SchoolIcon style={{ color: '#007bff' }} />, <WcIcon style={{ color: '#007bff' }} />, <SportsBasketballIcon style={{ color: '#007bff' }} />, <PhotoCameraIcon style={{ color: '#007bff' }} />, <FileUploadIcon style={{ color: '#007bff' }} />, <ArticleIcon style={{ color: '#007bff' }} />, <DoneAllIcon style={{ color: '#007bff' }} />]
   // const FormTitles = ["Bio Details  ", "Family Details", "School Details", "Spouse Details", "Sports and Clubs Details", "Profile Photo", "Document Uploads", "Course Documents", "Complete Process"];
 
@@ -185,9 +186,9 @@ function Application2() {
       return <Profilephoto formData={formData} setFormData={setFormData} />;
     } else if (page === 7) {
       return <DocumentUploads formData={formData} setFormData={setFormData} />;
-    } //else if (page === 8) {
-    // return
-    // }
+    } else if (page === 8) {
+      return <CourseDocuments formData={formData} setFormData={setFormData} />;
+    }
   };
 
   const handleLeftNavItemClick = (pageIndex) => {
