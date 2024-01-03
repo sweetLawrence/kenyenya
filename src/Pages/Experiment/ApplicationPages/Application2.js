@@ -43,25 +43,26 @@ function Application2() {
     currentpage: "",
 
     //personal data
-    surname: "",//
-    name: "",//
-    national_id: "",//
-    box: "",//
-    town: "",//
+    surname: "",
+    name: "",
+    national_id: "",
+    birthcertnumber: "",
+    box: "",
+    town: "",
     towncode: "",
-    phone: "",//
-    email: "",//
+    phone: "",
+    email: "",
     country: "",
-    dateofbirth: "",//
-    sex: "",//
-    village: "",//
-    location: "",//
-    division: "",//
+    dateofbirth: "",
+    sex: "",
+    village: "",
+    location: "",
+    division: "",
     birthtown: "",
-    region: "",//
-    county: "",//
-    asschief: "",//
-    chief: "",//
+    region: "",
+    county: "",
+    asschief: "",
+    chief: "",
     disabled: "",
     kcseIndex: "",
 
@@ -154,9 +155,7 @@ function Application2() {
     ecdecertificate:"",
     ptecertificate:"",
     admissionletter: "",
-    regulationdeclaration: "",
     resultslip: "",
-    courseacceptancedeclaration: "",
     // CourseDocuments
     // Completeprocess
 

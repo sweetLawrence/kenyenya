@@ -46,7 +46,7 @@ function SignUpInfo({ formData, setFormData }) {
       <TextField label="Surname" placeholder="Enter surname" type="text" value={formData.surname} onChange={(value) => handleTextChange(value, "surname")} />
       <TextField label="Name" placeholder="Enter (First and Second Name) here..." type="text" value={formData.name} onChange={(value) => handleTextChange(value, "name")} />
       <TextField label="Id Number" placeholder="Enter your correct National ID Number" type="number" value={formData.national_id} onChange={(value) => handleTextChange(value, "national_id")} />
-      {/* <TextField label="Birth Certificate Number" placeholder="Enter your correct National Birth Certificate Number" type="text" value={formData.birthcertnumber} onChange={(value) => handleTextChange(value, "birthcertnumber")} /> */}
+      <TextField label="Birth Certificate Number" placeholder="Enter your correct National Birth Certificate Number" type="text" value={formData.birthcertnumber} onChange={(value) => handleTextChange(value, "birthcertnumber")} />
       <TextField label="P.O Box" placeholder="Enter your Box Number" value={formData.box} onChange={(value) => handleTextChange(value, "box")} />
       <TextField label="Town" placeholder="Enter your nearest town here.." value={formData.town} type="text" onChange={(value) => handleTextChange(value, "town")} />
       <TextField label="Town Code" placeholder="Enter your town code here.." value={formData.towncode} type="number" onChange={(value) => handleTextChange(value, "towncode")} />
