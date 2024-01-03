@@ -145,6 +145,11 @@ function Application2() {
     // DocumentUploads
     nationalid: "",
     passportphoto: "",
+    birthcertificate:"",
+    kcsecertificate:"",
+    kcpecertificate:"",
+    kcseleavingcertificate:"",
+    recommendation:"",
     nhifcard: "",
     admissionletter: "",
     regulationdeclaration: "",
@@ -246,6 +251,9 @@ function Application2() {
           const server_data = response.data[0];
           console.log("responseData", server_data);
           setFormData(server_data);
+          setPage(Number(server_data.currentpage));
+          setActiveIndex(Number(server_data.currentpage));
+          setHighlightIndex(Number(server_data.currentpage));
         } catch (error) {
           console.error('Error fetching user data:', error);
         }

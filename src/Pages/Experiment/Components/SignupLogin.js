@@ -30,19 +30,23 @@ function SignupLogin() {
     })
 
     const navigation = useNavigate()
-    const handleTextChange = (value, field) => {
-        setSignUp({
-            ...signup,
-            [field]: value,
-        });
-        setLogin({
-            ...login,
-            [field]: value,
-        });
+    const handleTextChange = (value, field,formType) => {
+        if (formType === 'signup') {
+            setSignUp({
+                ...signup,
+                [field]: value,
+            });
+        } else if (formType === 'login') {
+            setLogin({
+                ...login,
+                [field]: value,
+            });
+        }
 
     };
 
-    async function handleLogin() {
+    async function handleLogin(e) {
+        e.preventDefault();
         try {
             if (!login.email || !login.email.includes('@')) {
                 toast.error('Please fill in your email address ');
@@ -51,15 +55,20 @@ function SignupLogin() {
             } else {
                 // const response = apiCall.post('/login',login);
                 const response = await axios.post(`${basePath}/api/login`, login);
-                const accessToken = response.data;
-                localStorage.setItem('accessToken', accessToken);
-                // alert(accessToken)
+                if (response.data.error) {
+                    toast.error('User does not exist');
+                } else {
+                    const accessToken = response.data;
+                    localStorage.setItem('accessToken', accessToken);
+                    // alert(accessToken)
 
-                toast.success(`You are Logged In Successfully`)
+                    toast.success(`You are Logged In Successfully`)
 
-                setTimeout(() => {
-                    navigation("/application-page");
-                }, 3000);
+                    setTimeout(() => {
+                        navigation("/application-page");
+                    }, 3000);
+
+                }
 
             }
 
@@ -69,7 +78,8 @@ function SignupLogin() {
 
     }
 
-    async function handleSignUp() {
+    async function handleSignUp(e) {
+        e.preventDefault();
         try {
             if (!signup.email || !login.email.includes('@')) {
                 toast.error('Please fill in your email address ');
@@ -126,39 +136,39 @@ function SignupLogin() {
             {loginSelected && (
                 <div className="login animate__animated animate__fadeInLeft" >
                     <form>
-                    <div className="input-container">
-                        <div className="schoolLogo">
-                            <img src={schoolLogo} alt="logo" />
+                        <div className="input-container">
+                            <div className="schoolLogo">
+                                <img src={schoolLogo} alt="logo" />
+                            </div>
+                            <h2 className="title">Log In</h2>
+                            <label className="input-label">Email</label>
+                            <input
+                                className="input-field inp"
+                                type="email"
+                                placeholder="Enter Email"
+                                value={login.email}
+                                required
+                                onChange={(event) => handleTextChange(event.target.value, "email","login")}
+                            />
+
+
+                            <label className="input-label">KCSE Index Number</label>
+                            <input
+                                className="input-field inp"
+                                type="text"
+                                placeholder="E.g 41725253026/2019"
+                                value={login.kcseIndex}
+                                minLength="16"
+                                maxLength="16"
+                                required
+                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex","login")}
+                            />
                         </div>
-                        <h2 className="title">Log In</h2>
-                        <label className="input-label">Email</label>
-                        <input
-                            className="input-field inp"
-                            type="email"
-                            placeholder="Enter Email"
-                            value={login.email}
-                            required 
-                            onChange={(event) => handleTextChange(event.target.value, "email")}
-                        />
-
-
-                        <label className="input-label">KCSE Index Number</label>
-                        <input
-                            className="input-field inp"
-                            type="text"
-                            placeholder="E.g 41725253026/2019"
-                            value={login.kcseIndex}
-                            minLength="16"
-                            maxLength="16"
-                            required 
-                            onChange={(event) => handleTextChange(event.target.value, "kcseIndex")}
-                        />
-                    </div>
-                    <div className="footer">
-                        <button
-                            type="submit"
-                            onClick={handleLogin}>Log In</button>
-                    </div>
+                        <div className="footer">
+                            <button
+                                type="submit"
+                                onClick={handleLogin}>Log In</button>
+                        </div>
                     </form>
                 </div>
             )}
@@ -168,39 +178,39 @@ function SignupLogin() {
             {signupSelected && (
                 <div className="login signup animate__animated animate__fadeInRight">
                     <form>
-                    <div className="input-container">
-                        <div className="schoolLogo">
-                            <img src={schoolLogo} alt="logo" />
+                        <div className="input-container">
+                            <div className="schoolLogo">
+                                <img src={schoolLogo} alt="logo" />
+                            </div>
+                            <h2 className="title">Sign Up</h2>
+                            <label className="input-label">Email</label>
+                            <input
+                                className="input-field inp"
+                                type="email"
+                                placeholder="Enter Email"
+                                value={signup.email}
+                                required
+                                onChange={(event) => handleTextChange(event.target.value, "email","signup")}
+                            />
+
+
+                            <label className="input-label">KCSE Index Number</label>
+                            <input
+                                className="input-field inp"
+                                type="text"
+                                placeholder="E.g 41725253026/2019"
+                                value={signup.kcseIndex}
+                                minLength="16"
+                                maxLength="16"
+                                required
+                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex","signup")}
+                            />
                         </div>
-                        <h2 className="title">Sign Up</h2>
-                        <label className="input-label">Email</label>
-                        <input
-                            className="input-field inp"
-                            type="email"
-                            placeholder="Enter Email"
-                            value={signup.email}
-                            required 
-                            onChange={(event) => handleTextChange(event.target.value, "email")}
-                        />
-
-
-                        <label className="input-label">KCSE Index Number</label>
-                        <input
-                            className="input-field inp"
-                            type="text"
-                            placeholder="E.g 41725253026/2019"
-                            value={signup.kcseIndex}
-                            minLength="16"
-                            maxLength="16"
-                            required 
-                            onChange={(event) => handleTextChange(event.target.value, "kcseIndex")}
-                        />
-                    </div>
-                    <div className="footer">
-                        <button
-                            type="submit"
-                            onClick={handleSignUp}>Start</button>
-                    </div>
+                        <div className="footer">
+                            <button
+                                type="submit"
+                                onClick={handleSignUp}>Start</button>
+                        </div>
                     </form>
                 </div>
             )}
