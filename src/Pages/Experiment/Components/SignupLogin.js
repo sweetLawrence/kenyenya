@@ -48,10 +48,10 @@ function SignupLogin() {
     async function handleLogin(e) {
         e.preventDefault();
         try {
-            if (!login.email || !login.email.includes('@')) {
+            if (!login.email) {
                 toast.error('Please fill in your email address ');
             } else if (!login.kcseIndex || !login.kcseIndex.includes('/')) {
-                toast.error('Please fill in your KCSE Index Number/Year ');
+                toast.error('Please fill in your correct KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/login',login);
                 const response = await axios.post(`${basePath}/api/login`, login);
@@ -81,10 +81,10 @@ function SignupLogin() {
     async function handleSignUp(e) {
         e.preventDefault();
         try {
-            if (!signup.email || !login.email.includes('@')) {
+            if (!signup.email) {
                 toast.error('Please fill in your email address ');
-            } else if (!signup.kcseIndex || !login.kcseIndex.includes('/')) {
-                toast.error('Please fill in your KCSE Index Number/Year ');
+            } else if (!signup.kcseIndex || !signup.kcseIndex.includes('/')) {
+                toast.error('Please fill in your correct KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/signup',signup);
                 const response = await axios.post(`${basePath}/api/signup`, signup);
@@ -135,7 +135,7 @@ function SignupLogin() {
             {/* login */}
             {loginSelected && (
                 <div className="login animate__animated animate__fadeInLeft" >
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="input-container">
                             <div className="schoolLogo">
                                 <img src={schoolLogo} alt="logo" />
@@ -167,7 +167,9 @@ function SignupLogin() {
                         <div className="footer">
                             <button
                                 type="submit"
-                                onClick={handleLogin}>Log In</button>
+
+                                // onClick={handleLogin}
+                                >Log In</button>
                         </div>
                     </form>
                 </div>
@@ -177,7 +179,7 @@ function SignupLogin() {
             {/* signup */}
             {signupSelected && (
                 <div className="login signup animate__animated animate__fadeInRight">
-                    <form>
+                    <form onSubmit={handleSignUp}>
                         <div className="input-container">
                             <div className="schoolLogo">
                                 <img src={schoolLogo} alt="logo" />
@@ -209,7 +211,8 @@ function SignupLogin() {
                         <div className="footer">
                             <button
                                 type="submit"
-                                onClick={handleSignUp}>Start</button>
+                                // onClick={handleSignUp}
+                                >Start</button>
                         </div>
                     </form>
                 </div>
