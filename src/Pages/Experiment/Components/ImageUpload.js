@@ -3,7 +3,8 @@ import '../../../Styles/upload.css';
 import { Toaster, toast } from 'sonner'
 import axios from 'axios'
 import basePath from '../../../Utilities/axios';
-import { Spinner } from 'react-bootstrap';
+// import { Spinner } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner';
 
 const ImageUpload = ({ formData, setFormData }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -80,14 +81,7 @@ const ImageUpload = ({ formData, setFormData }) => {
         {loading ? 
     
         <>
-            <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-            Loading...
+            <Spinner animation="grow" />;
           </>
         : 'Upload Image'}
       </button>
