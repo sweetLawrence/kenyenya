@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Toaster, toast } from 'sonner';
 import basePath from '../../../Utilities/axios';
+import Spinner from './Spinner';
 
 const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormData }) => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -70,7 +71,7 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
                 <div className="down">
                     <p className=''>{value}</p>
                     <button className='doc-upload-button' onClick={handleFileSubmit}>
-                    {loading ? 'Uploading...' : 'Upload'}
+                    {loading ? <Spinner /> : 'Upload'}
                     </button>
                 </div>
 
