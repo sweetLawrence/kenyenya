@@ -21,6 +21,7 @@ import SignupLogin from './Pages/Experiment/Components/SignupLogin';
 import UploadDocument from './Pages/Experiment/Components/UploadDocument';
 import DocumentUpload from './Pages/Experiment/Components/DocumentUpload';
 import DocumentUploads from './Pages/Experiment/ApplicationPages/DocumentUploads';
+import Spinner from './Pages/Experiment/Components/Spinner';
 
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
                 <Route path="/goods" element={<GoodsDelivery/>}/>
                 <Route path="/contractors" element={<Contractors/>}/>
                 <Route path="/loginpage" element={<SignupLogin />}/>
-                {/* <Route path="/upload_form" element={<DocumentUploads />}/> */}
+                <Route path="/spinner" element={<Spinner />}/>
 
             </Routes>
             <Footer/>
