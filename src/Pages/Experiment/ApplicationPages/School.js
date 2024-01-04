@@ -13,10 +13,6 @@ const School = ({ formData, setFormData }) => {
         { value: 'C+', label: 'C+' },
         { value: 'C', label: 'C' },
         { value: 'C-', label: 'C-' },
-        { value: 'D+', label: 'D+' },
-        { value: 'D', label: 'D' },
-        { value: 'D-', label: 'D-' },
-        { value: 'E', label: 'E' },
 
     ];
 
