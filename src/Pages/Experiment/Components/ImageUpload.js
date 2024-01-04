@@ -78,12 +78,11 @@ const ImageUpload = ({ formData, setFormData }) => {
 
       <input type='file' accept='image/*' className='file-input' onChange={handleImageChange} name="dp" />
       <button className='upload-button' onClick={handleImageUpload} disabled={loading}>
-        {loading ? 
-    
-        <>
-            <Spinner animation="grow" />;
-          </>
-        : 'Upload Image'}
+        {loading ?
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          : 'Upload Image'}
       </button>
 
 
