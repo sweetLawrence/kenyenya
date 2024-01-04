@@ -66,7 +66,7 @@ function SignupLogin() {
 
                     setTimeout(() => {
                         navigation("/application-page");
-                    }, 3000);
+                    }, 1500);
 
                 }
 
@@ -92,18 +92,26 @@ function SignupLogin() {
                         'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
                     }
                 });
-                const accessToken = response.data;
-                // alert(accessToken);
-                localStorage.setItem('accessToken', accessToken);
-                if (!accessToken || accessToken == undefined) {
-                    alert("Error signing you up, contact support");
-                    navigation('/loginpage')
+                if (response.data.type === "email") {
+                    toast.error('User with this email already exists');
+                    return;
+                } else if (response.data.type === "kcseIndex") {
+                    toast.error('Incorrect KCSE Index');
+                    return;
                 } else {
-                    toast.success(`You can now begin the registration process`)
-                    // alert(accessToken)
-                    setTimeout(() => {
-                        navigation("/application-page");
-                    }, 3000);
+                    const accessToken = response.data;
+                    // alert(accessToken);
+                    localStorage.setItem('accessToken', accessToken);
+                    if (!accessToken || accessToken == undefined) {
+                        alert("Error signing you up, contact support");
+                        navigation('/loginpage')
+                    } else {
+                        toast.success(`You can now begin the registration process`)
+                        // alert(accessToken)
+                        setTimeout(() => {
+                            navigation("/application-page");
+                        }, 1500);
+                    }
                 }
 
             }
