@@ -15,7 +15,14 @@ const Cocurricular = ({ formData, setFormData }) => {
   ];
   const clubs = [
     { value: 'Club?', label: 'Club?' },
-    { value: 'Society of Engineering', label: 'Society of Engineering' },
+    { value: ' Debate Club', label: ' Debate Club' },
+    { value: 'Journalism', label: 'Journalism' },
+    { value: 'Environmental Club', label: 'Environmental Club' },
+    { value: 'Drama', label: 'Drama' },
+    { value: 'Choir', label: 'Choir' },
+    { value: 'Christian Union (C.U)', label: 'Christian Union (C.U)' },
+
+
   ];
 
   const handleSelectChange = (value, field) => {
