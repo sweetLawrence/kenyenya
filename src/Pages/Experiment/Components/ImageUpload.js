@@ -26,7 +26,7 @@ const ImageUpload = ({ formData, setFormData }) => {
       //   profilePhoto: selectedImage,
       // });
       const accessToken = localStorage.getItem('accessToken');
-      alert(accessToken)
+      // alert(accessToken)
       const response = await axios.patch(`${basePath}/api/upload`, newformData, {
         headers: {
           accessToken: accessToken,
