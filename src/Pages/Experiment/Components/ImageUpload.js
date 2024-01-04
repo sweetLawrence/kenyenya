@@ -36,7 +36,7 @@ const ImageUpload = ({ formData, setFormData }) => {
         },
       });
       setSelectedImage(null);
-      console.log(response.data.url)
+      // console.log(response.data.url)
       // setUrl(response.data.url);
       setFormData({
         ...formData,
@@ -44,7 +44,7 @@ const ImageUpload = ({ formData, setFormData }) => {
       });
 
       if (!response.data.error) {
-        console.log("repsonsedailbevacwbvd", response.data)
+        // console.log("repsonsedailbevacwbvd", response.data)
         toast.success(`Profile Picture Uploaded Successfully`)
         // setTimeout(() => {
         setNotification(null);

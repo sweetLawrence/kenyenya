@@ -54,9 +54,17 @@ function SignupLogin() {
                 toast.error('Please fill in your correct KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/login',login);
-                const response = await axios.post(`${basePath}/api/login`, login);
-                if (response.data.error) {
-                    toast.error('User does not exist');
+                const response = await axios.post(`${basePath}/api/login`, login,{
+                    headers: {
+                        'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
+                    }
+                });
+                if (response.data.type === "email") {
+                    toast.error('User with this email does not exists');
+                    return;
+                } else if (response.data.type === "kcseIndex") {
+                    toast.error('Incorrect KCSE Index');
+                    return;
                 } else {
                     const accessToken = response.data;
                     localStorage.setItem('accessToken', accessToken);
@@ -96,7 +104,7 @@ function SignupLogin() {
                     toast.error('User with this email already exists');
                     return;
                 } else if (response.data.type === "kcseIndex") {
-                    toast.error('Incorrect KCSE Index');
+                    toast.error('KCSE Index Number already exists');
                     return;
                 } else {
                     const accessToken = response.data;

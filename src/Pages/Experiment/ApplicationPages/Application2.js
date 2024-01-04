@@ -231,7 +231,7 @@ function Application2() {
             'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
           },
         });//http://localhost:3001
-        console.log("3456789rdtfuhj", response);
+        // console.log("3456789rdtfuhj", response);
       }
 
     } catch (error) {
@@ -252,7 +252,7 @@ function Application2() {
             },
           });
           const server_data = response.data[0];
-          console.log("responseData", server_data);
+          // console.log("responseData", server_data);
           setFormData(server_data);
           setPage(Number(server_data.currentpage));
           setActiveIndex(Number(server_data.currentpage));
@@ -268,8 +268,8 @@ function Application2() {
 
     fetchData();
   }, []);
-  console.log("formData", formData)
-  console.log(activeIndex)
+  // console.log("formData", formData)
+  // console.log(activeIndex)
 
   return (
     <div className="form">
