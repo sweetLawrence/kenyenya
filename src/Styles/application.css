@@ -6,6 +6,7 @@
   margin-top: -2px;
   padding-top: 20px;
   position: relative;
+  overflow-y: hidden;
 }
 
 .form .progressbar {
@@ -258,8 +259,11 @@
 }
 
 .document-download-container {
+  /* background: green; */
+  width: 40%;
   display: flex;
-  justify-content: space-around;
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 .download {
   /* background: green; */
@@ -267,10 +271,20 @@
   /* align-items: center; */
   justify-content: center;
 }
+.document-download-container .down {
+  /* display: flex; */
+  /* gap: 2px; */
+  /* background: red; */
+  /* width: 400px; */
+  /* text-align: start; */
+  margin: 1em;
+}
+
 .download label {
   color: #007bff;
   font-size: 1em;
   font-weight: 600;
+  margin-right: 2em;
 }
 
 .spinner {
@@ -281,7 +295,7 @@
   padding: 0;
   border-radius: 50%;
   border-left-color: transparent;
-  animation: spin .9s infinite linear forwards;
+  animation: spin 0.9s infinite linear forwards;
 }
 @keyframes spin {
   from {
