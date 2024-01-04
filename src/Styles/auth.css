@@ -1,7 +1,7 @@
 .auth {
   /* background: red; */
   width: 50%;
-  margin:auto;
+  margin: auto;
   /* border: 1px solid grey; */
   height: 100vh;
   overflow: hidden;
@@ -32,19 +32,18 @@
   /* width: 50%; */
   margin: 0 auto;
   border-radius: 10px;
-   background: #efefef;
-   /* background: linear-gradient(to right,#007bff,#ff4870); */
+  background: #efefef;
+  /* background: linear-gradient(to right,#007bff,#ff4870); */
   /* border: 1px solid red; */
 }
 .auth .schoolLogo {
   /* background: red; */
 }
-.auth .schoolLogo img{
+.auth .schoolLogo img {
   margin: 0 auto;
-  scale: .9;
+  scale: 0.9;
   margin-top: -20px;
   margin-bottom: 10px;
-
 }
 .buttonSelect div {
   background: #007bff;
@@ -74,6 +73,13 @@
   transition: all 0.5s;
   cursor: pointer;
 }
+.auth .footer button:hover {
+  scale: 0.9;
+  background: #115dae;
+}
+/* .auth .footer button:hover {
+  scale: 0.9;
+} */
 
 @media screen and (max-width: 768px) {
   .auth {
