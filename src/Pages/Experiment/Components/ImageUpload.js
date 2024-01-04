@@ -50,7 +50,8 @@ const ImageUpload = ({ formData, setFormData }) => {
         setNotification(null);
         setLoading(false);
       } else {
-        toast.error('You are not logged in');
+        toast.error('Error uploading profile picture');
+        setLoading(false);
       }
 
 

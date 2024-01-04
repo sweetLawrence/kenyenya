@@ -6,6 +6,7 @@ import basePath from '../../../Utilities/axios';
 const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormData }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fieledValue,setFieldValue] = useState('');
+    const [loading, setLoading] = useState(false);
 
 
     const handleFileChange = (event) => {
@@ -20,6 +21,7 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
 
     const handleFileSubmit = () => {
         if (selectedFile) {
+            setLoading(true);
             const newformData = new FormData();
             newformData.append(name, selectedFile);
             // alert(label.toLowerCase().replace(/\s+/g, ''))
@@ -42,11 +44,13 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
                         ...formData,
                         [newLabel]: response.data.originalname,
                     });
+                    setLoading(false);
                     // setFieldValue(response.data)
 
                 })
                 .catch((error) => {
                     console.error(`Error uploading file ${name}:`, error);
+                    setLoading(false);
                 });
 
             onFileSelect(name, selectedFile);
@@ -65,7 +69,9 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
 
                 <div className="down">
                     <p className=''>{value}</p>
-                    <button className='doc-upload-button' onClick={handleFileSubmit}>Upload</button>
+                    <button className='doc-upload-button' onClick={handleFileSubmit}>
+                    {loading ? 'Uploading...' : 'Upload'}
+                    </button>
                 </div>
 
             </div>
