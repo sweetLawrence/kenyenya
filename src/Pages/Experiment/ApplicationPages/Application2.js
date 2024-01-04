@@ -247,7 +247,7 @@ function Application2() {
           const response = await axios.get(`${basePath}/api/applicant`, {
             headers: {
               accessToken: accessToken,
-              // 'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
+              'ngrok-skip-browser-warning': ngrokSkipBrowserWarningValue,
             },
           });
           const server_data = response.data[0];

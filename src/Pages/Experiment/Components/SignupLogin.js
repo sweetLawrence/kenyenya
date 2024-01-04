@@ -30,7 +30,7 @@ function SignupLogin() {
     })
 
     const navigation = useNavigate()
-    const handleTextChange = (value, field,formType) => {
+    const handleTextChange = (value, field, formType) => {
         if (formType === 'signup') {
             setSignUp({
                 ...signup,
@@ -87,7 +87,11 @@ function SignupLogin() {
                 toast.error('Please fill in your correct KCSE Index Number/Year ');
             } else {
                 // const response = apiCall.post('/signup',signup);
-                const response = await axios.post(`${basePath}/api/signup`, signup);
+                const response = await axios.post(`${basePath}/api/signup`, signup, {
+                    headers: {
+                        'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
+                    }
+                });
                 const accessToken = response.data;
                 // alert(accessToken);
                 localStorage.setItem('accessToken', accessToken);
@@ -148,7 +152,7 @@ function SignupLogin() {
                                 placeholder="Enter Email"
                                 value={login.email}
                                 required
-                                onChange={(event) => handleTextChange(event.target.value, "email","login")}
+                                onChange={(event) => handleTextChange(event.target.value, "email", "login")}
                             />
 
 
@@ -161,15 +165,15 @@ function SignupLogin() {
                                 minLength="16"
                                 maxLength="16"
                                 required
-                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex","login")}
+                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex", "login")}
                             />
                         </div>
                         <div className="footer">
                             <button
                                 type="submit"
 
-                                // onClick={handleLogin}
-                                >Log In</button>
+                            // onClick={handleLogin}
+                            >Log In</button>
                         </div>
                     </form>
                 </div>
@@ -192,7 +196,7 @@ function SignupLogin() {
                                 placeholder="Enter Email"
                                 value={signup.email}
                                 required
-                                onChange={(event) => handleTextChange(event.target.value, "email","signup")}
+                                onChange={(event) => handleTextChange(event.target.value, "email", "signup")}
                             />
 
 
@@ -205,14 +209,14 @@ function SignupLogin() {
                                 minLength="16"
                                 maxLength="16"
                                 required
-                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex","signup")}
+                                onChange={(event) => handleTextChange(event.target.value, "kcseIndex", "signup")}
                             />
                         </div>
                         <div className="footer">
                             <button
                                 type="submit"
-                                // onClick={handleSignUp}
-                                >Start</button>
+                            // onClick={handleSignUp}
+                            >Start</button>
                         </div>
                     </form>
                 </div>
