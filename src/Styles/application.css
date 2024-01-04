@@ -25,7 +25,7 @@
   background-color: #007bff;
   border: 0.1px solid #007bff;
   border-radius: 10px;
-  transition: all .6s;
+  transition: all 0.6s;
 }
 .form .footer button {
   background: #007bff;
@@ -252,39 +252,42 @@
 }
 .document-upload-container .down button {
   margin-left: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .document-download-container {
   display: flex;
   justify-content: space-around;
 }
-.download{
+.download {
   /* background: green; */
   display: flex;
   /* align-items: center; */
   justify-content: center;
 }
-.download label{
+.download label {
   color: #007bff;
   font-size: 1em;
   font-weight: 600;
 }
 
-.spinner{
+.spinner {
   height: 20px;
   width: 20px;
-  border: 3px solid red;
-  margin: 0;
+  border: 3px solid white;
+  margin: 0.5em;
   padding: 0;
   border-radius: 50%;
   border-left-color: transparent;
   animation: spin 3s infinite linear forwards;
 }
 @keyframes spin {
-  from{
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
