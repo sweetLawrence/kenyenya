@@ -3,6 +3,7 @@ import '../../../Styles/upload.css';
 import { Toaster, toast } from 'sonner'
 import axios from 'axios'
 import basePath from '../../../Utilities/axios';
+import { Spinner } from 'react-bootstrap';
 
 const ImageUpload = ({ formData, setFormData }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -76,7 +77,19 @@ const ImageUpload = ({ formData, setFormData }) => {
 
       <input type='file' accept='image/*' className='file-input' onChange={handleImageChange} name="dp" />
       <button className='upload-button' onClick={handleImageUpload} disabled={loading}>
-        {loading ? 'Uploading...' : 'Upload Image'}
+        {loading ? 
+    
+        <>
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </>
+        : 'Upload Image'}
       </button>
 
 
