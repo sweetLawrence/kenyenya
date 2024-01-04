@@ -28,7 +28,8 @@ const DocumentUpload = ({ label, name, onFileSelect, value, formData, setFormDat
             axios.patch(`${basePath}/api/file_upload/${name}`, newformData, {
                 headers: {
                     accessToken: accessToken,
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
 
                 },
             })

@@ -30,7 +30,8 @@ const ImageUpload = ({ formData, setFormData }) => {
       const response = await axios.patch(`${basePath}/api/upload`, newformData, {
         headers: {
           accessToken: accessToken,
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
 
         },
       });

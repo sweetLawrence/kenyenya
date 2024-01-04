@@ -228,6 +228,7 @@ function Application2() {
         const response = await axios.patch(`${basePath}/api/update-applicant`, formData, {
           headers: {
             accessToken: accessToken,
+            'ngrok-skip-browser-warning': "ngrokSkipBrowserWarningValue",
           },
         });//http://localhost:3001
         console.log("3456789rdtfuhj", response);
