@@ -74,7 +74,7 @@ function SignupLogin() {
 
                     setTimeout(() => {
                         navigation("/application-page");
-                    }, 1500);
+                    }, 300);
 
                 }
 
@@ -118,7 +118,7 @@ function SignupLogin() {
                         // alert(accessToken)
                         setTimeout(() => {
                             navigation("/application-page");
-                        }, 1500);
+                        }, 300);
                     }
                 }
 
