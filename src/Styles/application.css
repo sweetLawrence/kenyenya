@@ -6,7 +6,7 @@
   margin-top: -2px;
   padding-top: 20px;
   position: relative;
-  overflow-y: hidden;
+  overflow:hidden;
 }
 
 .form .progressbar {
